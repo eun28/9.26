@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Finding Psyche</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Jacquarda+Bastarda+9&family=Mountains+of+Christmas:wght@400;700&family=Quintessential&display=swap" rel="stylesheet">
+
+	<style type="text/css">
+		@font-face {
+			font-family: 'SungDongMyungjo';
+			font-style: normal;
+			font-weight: 400;
+			src: url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongMyungjo/SungDongMyungjoR.woff2') format('woff2'), url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongMyungjo/SungDongMyungjoR.woff') format('woff');
+		}
+		body,p {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: 'SungDongMyungjo', serif;
+			transition: background-color 0.5s;
+			letter-spacing: -0.05em;
+			cursor: url(https://cur.cursors-4u.net/symbols/sym-6/sym597.cur), auto !important;
+			 overflow: hidden;
+		}
+
+		.video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			cursor: url(https://cur.cursors-4u.net/symbols/sym-6/sym597.cur), auto !important;
+		}
+
+		#heVideo {
+			position: absolute;
+			width: 50%; 
+			height: 50%;
+			top: 25%;
+			left: 25%;
+			display: none;
+		}
+
+		.one {
+			color: white; 
+			font-size: 1.2rem; 
+			position: absolute;
+			z-index: 1; 
+			top: 50%
+			line-height: 1.3;
+			text-shadow: 0px 0px 10px #FFFFFF;
+		}
+
+		.two {
+			color: white; 
+			font-size: 4rem; 
+			position: absolute;
+			z-index: -1; 
+			top: 0px;
+			left: 30px; 
+			padding-right: 20px;
+			word-break: break-all;
+			line-height: 1.5;
+			display: none;
+			padding-top: 20px;
+		}
+
+		#errosMessage {
+			color: white; 
+			font-size: 1.2rem; 
+			position: absolute;
+			z-index: 1; 
+			line-height: 1.5;
+			display: none;
+			top:50%;
+		}
+
+		.candle {
+        position: absolute;
+        width: 70%;
+        height: 70%;
+    }
+
+
+		.three{font-family: "Mountains of Christmas", serif;
+  font-weight: 400;
+  font-style: normal; font-size: 14.0rem; color: white; letter-spacing: -2px;text-align: center; text-shadow: 0px 0px 20px #83D0FF; z-index: 1; padding-top: 20px;}
+	</style>
+<a href="https://www.cursors-4u.com/cursor/2011/01/26/transparent-white-star.html" target="_blank" title="Transparent White Star"><img src="https://cur.cursors-4u.net/cursor.png" border="0" alt="Transparent White Star" style="position:absolute; top: 0px; right: 0px;" /></a>
+</head>
+<body>
+	<p id="message" class="three">Finding Psyche</p>
+	<video id="myVideo" class="video" autoplay muted loop>
+		<source src="off.mp4" type="video/mp4">
+	</video>
+
+	<video id="heVideo">
+		<source src="he.mp4" type="video/mp4">
+	</video>
+
+	<p id="errosMessage" class="one">누가 봐도 에로스임을 알 수 있는 그 날개 달린 신의 자태는 너무도 매혹적이었고, 당신은 단검을 든 채로 신랑의 미모를 감상하다 실수로 등잔의 기름 한 방울을 그의 어깨에 떨어뜨리고 말았다.</p>
+
+	<p class="two">어리석은 프시케, 난 당신을 위해 어머니 아프로디테의 지시도 어겼어. 어머니는 당신을 세상에서 가장 볼품없는 인간과 사랑에 빠지게 하라고 하셨지. 하지만 난 당신을 보는 순간 사랑에 빠져 내 화살로 내 자신에게 상처를 입혀 당신을 아내로 삼았는데 당신은 나를 의심하여 괴물로 생각하고 내 목을 자르려 하다니... 사랑이 어찌 의심과 함께할 수 있겠어.</p>
+
+	<audio id="audioPlayer" src="find.mp3"></audio>
+
+<script type="text/javascript">
+    let isFirstClick = true;
+
+    document.addEventListener('click', function() {
+        if (isFirstClick) {
+            let name = prompt("에로스의 얼굴이 궁금해?", "yes");
+            const audioPlayer = document.getElementById("audioPlayer");
+            audioPlayer.play();
+            isFirstClick = false; 
+            changeVideo();
+        } else {
+            changeVideo();
+        }
+    });
+
+    const video = document.getElementById('myVideo');
+    const heVideo = document.getElementById('heVideo');
+    const message = document.getElementById('message');
+    const errosMessage = document.getElementById('errosMessage');
+    const twoMessage = document.querySelector('.two');
+
+    let clickCount = 0;
+
+    function changeVideo() {
+        if (clickCount === 0) {
+            video.src = 'on.mp4';
+            video.play();
+            message.style.display = 'none';
+            errosMessage.style.display = 'block';
+            clickCount++;
+        } else if (clickCount === 1) {
+            let response = prompt("정말 에로스의 얼굴이 궁금해?", "yes");
+            if (response) {
+                console.log(response);
+            }
+            heVideo.style.display = 'block'; 
+            heVideo.play(); 
+            errosMessage.style.display = 'none';
+            clickCount++;
+        }
+    }
+
+    function showText(text) {
+        twoMessage.innerHTML = '';
+        let index = 0;
+
+        
+        generateCandles(); 
+
+        function displayNextCharacter() {
+            if (index < text.length) {
+                twoMessage.innerHTML += text[index];
+                index++;
+                setTimeout(displayNextCharacter, 50);
+            } else {
+                twoMessage.style.display = 'block';
+            }
+        }
+
+        displayNextCharacter(); 
+    }
+
+    heVideo.addEventListener('ended', function() {
+        document.body.style.backgroundColor = 'black'; 
+        heVideo.style.display = 'none';
+        video.style.display = 'none';
+        twoMessage.style.display = 'block';
+        // 텍스트와 촛불 동시 출력
+        showText("어리석은 프시케, 난 당신을 위해 어머니 아프로디테의 지시도 어겼어.\n어머니는 당신을 세상에서 가장 볼품없는 인간과 사랑에 빠지게 하라고 하셨지.\n하지만 난 당신을 보는 순간 사랑에 빠져 내 화살로 내 자신에게 상처를 입혀 당신을 아내로 삼았는데\n당신은 나를 의심하여 괴물로 생각하고 내 목을 자르려 하다니...\n사랑이 어찌 의심과 함께할 수 있겠어.");
+    });
+
+    function generateCandles() {
+        let candleCount = 0;
+        const maxCandles = 30; 
+        const interval = setInterval(function() {
+            if (candleCount >= maxCandles) { 
+                clearInterval(interval);
+                return;
+            }
+
+            let candle = document.createElement('img');
+            candle.src = 'candle2.png';
+            candle.classList.add('candle');
+            document.body.appendChild(candle);
+
+            let a = window.innerWidth * Math.random();
+            let b = window.innerHeight * Math.random();
+            let c = 50 + 100 * Math.random();
+            candle.style.width = c + "px";
+            candle.style.height = c + "px";
+            candle.style.position = 'absolute';
+            candle.style.left = a + "px";
+            candle.style.top = b + "px";
+
+            candleCount++;
+        }, 900);
+    }
+</script>
+
+
+</body>
+</html>
+
